@@ -1,7 +1,39 @@
+import { useMemo, useState } from 'react'
 import { capabilities, projectFilters, projects } from '@/data/portfolio'
 import { SectionTitle } from '@/components/ui/SectionTitle'
 
 export function PortfolioPage() {
+  const [selectedFilter, setSelectedFilter] = useState(projectFilters[0] ?? 'ALL_UNITS')
+
+  const handleOpenProject = (link: string, isPrivate?: boolean) => {
+    if (isPrivate) {
+      return
+    }
+
+    if (!link || link === '#') {
+      return
+    }
+
+    if (link.startsWith('http://') || link.startsWith('https://')) {
+      window.open(link, '_blank', 'noopener,noreferrer')
+      return
+    }
+
+    window.location.assign(link)
+  }
+
+  const filteredProjects = useMemo(() => {
+    if (selectedFilter === 'ALL_UNITS') {
+      return projects
+    }
+
+    const normalizedFilter = selectedFilter.toLowerCase()
+
+    return projects.filter((project) =>
+      project.tags.some((tag) => tag.toLowerCase() === normalizedFilter),
+    )
+  }, [selectedFilter])
+
   return (
     <>
       <section className="mx-auto max-w-7xl px-6 pb-16 pt-24">
@@ -14,6 +46,8 @@ export function PortfolioPage() {
             DIGITAL
             <br />
             ARCHITECT
+            <br />
+            Ricky
           </h1>
           <p className="max-w-2xl text-lg leading-relaxed text-on-surface-variant">
             Building resilient platforms, high-fidelity interfaces, and deployment pipelines engineered for long-term scale.
@@ -23,17 +57,19 @@ export function PortfolioPage() {
 
       <section className="mx-auto mb-12 max-w-7xl px-6">
         <div className="flex flex-wrap items-center gap-4 border-b border-outline-variant/20 pb-6">
-          <span className="mr-4 font-mono text-xs uppercase tracking-widest text-outline">[FILTER_MODULE]:</span>
-          {projectFilters.map((filter, index) => (
+          <span className="mr-4 font-mono text-xs uppercase tracking-widest text-outline">[FILTERS]:</span>
+          {projectFilters.map((filter) => (
             <button
               key={filter}
               className={[
                 'border px-4 py-1 font-mono text-xs transition-colors',
-                index === 0
+                selectedFilter === filter
                   ? 'border-primary text-primary hover:bg-primary/10'
                   : 'border-outline-variant/30 text-outline hover:border-primary hover:text-primary',
               ].join(' ')}
               type="button"
+              aria-pressed={selectedFilter === filter}
+              onClick={() => setSelectedFilter(filter)}
             >
               {filter}
             </button>
@@ -42,37 +78,60 @@ export function PortfolioPage() {
       </section>
 
       <section className="mx-auto max-w-7xl px-6 pb-24">
-        <div className="grid grid-cols-1 gap-px border border-outline-variant/20 bg-outline-variant/20 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project) => (
-            <article
-              key={project.id}
-              className="group flex h-full flex-col border border-transparent bg-surface p-8 transition-colors hover:border-primary/30 hover:bg-surface-container-high"
-            >
-              <div className="mb-10 flex items-start justify-between">
-                <span className="font-mono text-xs text-primary">[{project.id}]</span>
-                <span className="material-symbols-outlined text-outline transition-colors group-hover:text-primary">
-                  {project.icon}
-                </span>
-              </div>
+        {filteredProjects.length === 0 ? (
+          <div className="border border-outline-variant/30 bg-surface p-8 text-center font-mono text-xs uppercase tracking-widest text-outline">
+            NO_PROJECTS_FOUND_FOR_{selectedFilter}
+          </div>
+        ) : (
+          <div className="overflow-x-auto pb-4">
+            <div className="flex min-w-max gap-4">
+              {filteredProjects.map((project) => (
+                <article
+                  key={project.id}
+                  className="group flex w-[320px] flex-shrink-0 flex-col border border-outline-variant/20 bg-surface p-8 transition-colors hover:border-primary/30 hover:bg-surface-container-high md:w-[380px]"
+                >
+                  <div className="mb-10 flex items-start justify-between">
+                    <span className="font-mono text-xs text-primary">[{project.id}]</span>
+                    <span className="material-symbols-outlined text-outline transition-colors group-hover:text-primary">
+                      {project.icon}
+                    </span>
+                  </div>
 
-              <div className="mb-6 aspect-video border border-outline-variant/20 bg-surface-container-lowest" />
-              <h3 className="mb-4 font-headline text-2xl font-bold uppercase tracking-tight">{project.title}</h3>
-              <p className="mb-8 flex-grow text-sm text-on-surface-variant">{project.description}</p>
+                  <div className="mb-6 aspect-video border border-outline-variant/20 bg-surface-container-lowest" />
+                  <h3 className="mb-4 font-headline text-2xl font-bold uppercase tracking-tight">{project.title}</h3>
+                  <p className="mb-8 flex-grow text-sm text-on-surface-variant">{project.description}</p>
 
-              <div className="mb-8 flex flex-wrap gap-2">
-                {project.tags.map((tag) => (
-                  <span key={tag} className="bg-surface-container-low px-2 py-1 font-mono text-[10px] text-tertiary">
-                    {tag}
-                  </span>
-                ))}
-              </div>
+                  <div className="mb-8 flex flex-wrap gap-2">
+                    {project.tags.map((tag) => (
+                      <span key={tag} className="bg-surface-container-low px-2 py-1 font-mono text-[10px] text-tertiary">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
 
-              <button className="w-full border border-outline-variant/30 py-3 font-mono text-xs uppercase tracking-widest transition-all group-hover:border-primary group-hover:text-primary">
-                OPEN_PROJECT
-              </button>
-            </article>
-          ))}
-        </div>
+                  <button
+                    className={[
+                      'w-full border py-3 font-mono text-xs uppercase tracking-widest transition-all',
+                      project.isPrivate
+                        ? 'border-outline-variant/30 bg-surface-container-lowest text-outline/50 cursor-not-allowed'
+                        : 'border-outline-variant/30 group-hover:border-primary group-hover:text-primary',
+                    ].join(' ')}
+                    type="button"
+                    onClick={() => handleOpenProject(project.link, project.isPrivate)}
+                    disabled={project.isPrivate}
+                  >
+                    OPEN_PROJECT
+                  </button>
+                  {project.isPrivate && project.privateReason && (
+                    <p className="mt-3 text-center font-mono text-[10px] text-outline/50 italic">
+                      [PRIVATE: {project.privateReason}]
+                    </p>
+                  )}
+                </article>
+              ))}
+            </div>
+          </div>
+        )}
       </section>
 
       <section className="mx-auto max-w-7xl px-6 pb-40">

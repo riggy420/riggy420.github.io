@@ -46,7 +46,8 @@ export function AboutPage() {
           <div className="relative md:col-span-4">
             <div className="relative aspect-[3/4] overflow-hidden border border-outline-variant/20 bg-surface-container-lowest">
               <div className="absolute inset-0 bg-gradient-to-b from-primary/20 via-transparent to-background" />
-              <div className="absolute bottom-4 left-4 font-mono text-[10px] text-primary/60">SYSTEM_IMAGE_01.RAW</div>
+              <img src="/profile.jpeg" alt="Profile" className="h-full w-full object-cover object-[25%-75%]" />
+              <div className="absolute bottom-4 left-4 font-mono text-[10px] text-primary/60">It's me</div>
             </div>
             <div className="absolute -right-4 -top-4 h-24 w-24 border-r border-t border-primary/40" />
           </div>

@@ -4,7 +4,7 @@ export const stackGroups: StackGroup[] = [
   {
     id: 'CORE_LOGIC',
     title: 'Functional Programming',
-    description: 'TypeScript, Rust, and Go. Scalable, type-safe architectures designed for concurrency and reliability.',
+    description: 'TypeScript and Go. Scalable, type-safe architectures designed for concurrency and reliability.',
     icon: 'terminal',
   },
   {
@@ -23,7 +23,7 @@ export const stackGroups: StackGroup[] = [
   {
     id: 'PROGRAMMING_LANGUAGES',
     title: 'Programming Languages',
-    description: 'TypeScript, and Go. Scalable, type-safe architectures designed for concurrency and reliability.',
+    description: 'TypeScript and Go. Scalable, type-safe architectures designed for concurrency and reliability.',
     icon: 'code',
   },
   {

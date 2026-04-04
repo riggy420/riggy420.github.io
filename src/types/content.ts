@@ -9,6 +9,10 @@ export type Project = {
   description: string
   tags: string[]
   icon: string
+  link: string
+  picture?: string
+  isPrivate?: boolean
+  privateReason?: string
 }
 
 export type Capability = {

@@ -5,15 +5,18 @@ export const navItems: NavItem[] = [
   { label: 'ABOUT', href: '/about' },
 ]
 
-export const projectFilters = ['ALL_UNITS', 'NEURAL_NETS', 'BLOCKCHAIN_CORES', 'INTERFACE_HUD']
+export const projectFilters = ['ALL_UNITS', 'AI', 'Embedded', 'Linux']
 
 export const projects: Project[] = [
   {
     id: 'PROJECT_Trade',
-    title: 'Aegis Core V2',
-    description: 'Hardened security runtime for distributed workloads with deterministic failover and fast event recovery.',
+    title: 'Trading Core V2',
+    description: 'A full trading ecosystem, inluding automated trading, data scrapping, data anyalytics and all presented to a website, allowing people to browse for different trading strategies ',
     tags: ['Python', 'Linux', 'Simulation'],
     icon: 'analytics',
+    link: "https://github.com/riggy420/library",
+    isPrivate: false,
+    privateReason: 'Client confidentiality',
   },
   {
     id: 'PROJECT_Zortex',
@@ -21,13 +24,30 @@ export const projects: Project[] = [
     description: 'Pariptated in the development of Zortex, a innovative AI-powered day-to-day assistant designed to streamline tasks and enhance productivity. Contributed to the core architecture and feature development, leveraging Python and React to create a seamless user experience.',
     tags: ['Python', 'React', 'AI'],
     icon: 'database',
+    link: "#",
+    isPrivate: true, 
+    privateReason: "Under NDA"
   },
   {
     id: 'PROJECT_fabrica',
     title: 'Baremetal Provisioning System',
-    description: 'Observability layer for high-volume telemetry streams, tuned for real-time insight and anomaly detection.',
-    tags: ['Go', 'PostgreSQL', 'React'],
+    description: 'A platform for provisioning and managing bare-metal infrastructure with automated deployment and configuration so that different IT teams can efficiently manage their resources.',
+    tags: ['Go', 'PostgreSQL', 'Hardware',"linux"],
     icon: 'terminal',
+    link: "#",
+    isPrivate: true,
+    privateReason: 'Under HKUST IP',
+
+  },
+  {
+    id: 'PROJECT_float',
+    title: 'ROV - float',
+    description: 'Served under HKUST Robotics team and designed and architected a mini-ROV that can auto-deploy and measure temperature, time, pressure and depth in extreme environments and report the data. A 240p high resolution analog videos was trasnmitted for inspection',
+    tags: ['Embedded', 'Hardware', 'C++'],
+    icon: 'hardware',
+    link: "#",
+    isPrivate: true,
+    privateReason: 'Other team has exclusive rights',
   },
 ]
 
