@@ -1,10 +1,10 @@
 // var ghpages = import('gh-pages');
-import {ghpages} from 'gh-pages';
+import ghpages from 'gh-pages';
 
 ghpages.publish(
-    'public',
+    'dist',
     {
-        branch: 'master',
+        branch: 'main',
         repo: 'riggy420.github.io',
     },
     () => {

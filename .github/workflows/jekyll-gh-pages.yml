@@ -37,7 +37,7 @@ jobs:
           destination: ./_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
-      - run: npm init
+      - run: npm init -y
       - run: npm install
       - run: npm run build
       - run: npm audit signatures
