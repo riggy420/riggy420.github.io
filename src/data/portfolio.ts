@@ -16,11 +16,11 @@ export const projects: Project[] = [
     icon: 'analytics',
   },
   {
-    id: 'PROJECT_Zortex',
-    title: 'Zortex',
-    description: 'Pariptated in the development of Zortex, a innovative AI-powered day-to-day assistant designed to streamline tasks and enhance productivity. Contributed to the core architecture and feature development, leveraging Python and React to create a seamless user experience.',
-    tags: ['Python', 'React', 'AI'],
-    icon: 'database',
+    id: 'PROJECT_loRaWAN',
+    title: 'LoRaWAN',
+    description: 'Monitoring the behavior of LoRaWAN devices in a large-scale deployment, with a focus on reliability and performance.',
+    tags: ['Python', 'Linux', 'Simulation'],
+    icon: 'analytics',
   },
   {
     id: 'PROJECT_fabrica',

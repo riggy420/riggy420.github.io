@@ -44,6 +44,12 @@ export const persistence = ['POSTGRESQL', 'REDIS', 'MONGODB', 'ELASTICSEARCH','M
 
 export const milestones: Milestone[] = [
   {
+    period: '2026.Jul — 2026.Aug',
+    role: "Data Office Intern @ Citic (International) Bank",
+    summary: "Filled in later",
+    tags: ['Banking_System', 'Data_Engineering'],
+  },
+  {
     period: '2026.Jan — 2026.Mar',
     role: 'AI R&D Engineer @ WeBank',
     summary: 'Work in the Web3 Coding team to build a secure and scalable AI coding framework for other software developer in the bank to use. I was mainly responsible for the memory management module in the framework, which provides efficient and reliable memory allocation and deallocation for AI workloads.',
