@@ -10,7 +10,7 @@ export type Project = {
   tags: string[]
   icon: string
   link: string
-  picture?: string
+  pictures?: string[]
   isPrivate?: boolean
   privateReason?: string
 }

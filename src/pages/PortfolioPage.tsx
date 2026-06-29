@@ -49,6 +49,9 @@ export function PortfolioPage() {
             <br />
             Ricky
           </h1>
+          
+          <img src="/profile.jpeg" alt="Profile" className="h-full w-full object-cover object-[25%-75%]" />
+          
           <p className="max-w-2xl text-lg leading-relaxed text-on-surface-variant">
             Building resilient platforms, high-fidelity interfaces, and deployment pipelines engineered for long-term scale.
           </p>
@@ -98,7 +101,7 @@ export function PortfolioPage() {
                   </div>
 
                   <div className="mb-6 aspect-video border border-outline-variant/20 bg-surface-container-lowest">
-                    <img src={project.picture || '/public/profile.jpeg'} alt={project.title} className="h-full w-full object-cover" />
+                    <img src={project.pictures?.[0] || '/public/profile.jpeg'} alt={project.title} className="h-full w-full object-cover" />
                   </div>
 
                   <h3 className="mb-4 font-headline text-2xl font-bold uppercase tracking-tight">{project.title}</h3>
