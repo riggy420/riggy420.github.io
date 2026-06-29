@@ -36,6 +36,7 @@ export const projects: Project[] = [
     tags: ['Go', 'PostgreSQL', 'Hardware',"linux"],
     icon: 'terminal',
     link: "#",
+    pictures: ['./public/fabrica.png'],
     isPrivate: true,
     privateReason: 'Under HKUST IP',
 
@@ -47,6 +48,7 @@ export const projects: Project[] = [
     tags: ['Embedded', 'Hardware', 'C++'],
     icon: 'hardware',
     link: "#",
+    pictures:["./public/float.png"],
     isPrivate: true,
     privateReason: 'Other team has exclusive rights',
   },
