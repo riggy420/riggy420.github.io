@@ -24,6 +24,9 @@ export const projects: Project[] = [
     description: 'Monitoring the behavior of LoRaWAN devices in a large-scale deployment, with a focus on reliability and performance.',
     tags: ['Python', 'Linux', 'Simulation'],
     icon: 'analytics',
+    link: "#",
+    isPrivate: true,
+    privateReason: 'HKUST IP',
   },
   {
     id: 'PROJECT_fabrica',
