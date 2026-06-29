@@ -97,7 +97,10 @@ export function PortfolioPage() {
                     </span>
                   </div>
 
-                  <div className="mb-6 aspect-video border border-outline-variant/20 bg-surface-container-lowest" />
+                  <div className="mb-6 aspect-video border border-outline-variant/20 bg-surface-container-lowest">
+                    <img src={project.picture || '/public/profile.jpeg'} alt={project.title} className="h-full w-full object-cover" />
+                  </div>
+
                   <h3 className="mb-4 font-headline text-2xl font-bold uppercase tracking-tight">{project.title}</h3>
                   <p className="mb-8 flex-grow text-sm text-on-surface-variant">{project.description}</p>
 

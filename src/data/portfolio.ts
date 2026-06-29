@@ -15,6 +15,7 @@ export const projects: Project[] = [
     tags: ['Python', 'Linux', 'Simulation'],
     icon: 'analytics',
     link: "https://github.com/riggy420/library",
+    picture: '/public/profile.jpeg',
     isPrivate: false,
     privateReason: 'Client confidentiality',
   },

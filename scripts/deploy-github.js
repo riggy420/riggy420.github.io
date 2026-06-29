@@ -2,7 +2,7 @@
 import ghpages from 'gh-pages';
 
 ghpages.publish(
-    'dist',
+    'public',
     {
         branch: 'main',
         repo: 'riggy420.github.io',
