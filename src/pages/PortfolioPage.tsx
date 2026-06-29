@@ -42,16 +42,21 @@ export function PortfolioPage() {
             <span className="h-px w-12 bg-primary" />
             <span className="font-mono text-xs tracking-[0.3em] text-primary">STATUS: ONLINE // VER_4.0.2</span>
           </div>
-          <h1 className="font-headline text-6xl font-black uppercase leading-none tracking-tight md:text-8xl">
-            DIGITAL
-            <br />
-            ARCHITECT
-            <br />
-            Ricky
-          </h1>
-          
-          <img src="/profile.jpeg" alt="Profile" className="h-full w-full object-cover object-[25%-75%]" />
-          
+          <div className="flex flex-col gap-6 md:flex-row md:items-center md:gap-10 md:justify-between">
+            <h1 className="font-headline text-6xl font-black uppercase leading-none tracking-tight md:text-8xl">
+              DIGITAL
+              <br />
+              ARCHITECT
+              <br />
+              Ricky
+            </h1>
+            <img
+              src="/profile.jpeg"
+              alt="Profile"
+              className="h-40 w-40 flex-shrink-0 rounded-full border-2 border-primary/30 object-cover md:h-56 md:w-56"
+            />
+          </div>
+
           <p className="max-w-2xl text-lg leading-relaxed text-on-surface-variant">
             Building resilient platforms, high-fidelity interfaces, and deployment pipelines engineered for long-term scale.
           </p>
@@ -100,8 +105,8 @@ export function PortfolioPage() {
                     </span>
                   </div>
 
-                  <div className="mb-6 aspect-video border border-outline-variant/20 bg-surface-container-lowest">
-                    <img src={project.pictures?.[0] || '/public/profile.jpeg'} alt={project.title} className="h-full w-full object-cover" />
+                  <div className="mb-6 w-full aspect-video border border-outline-variant/20 bg-surface-container-lowest">
+                    <img src={project.pictures?.[0] || '/public/profile.jpeg'} alt={project.title} className="h-full w-full object-cover object-center" />
                   </div>
 
                   <h3 className="mb-4 font-headline text-2xl font-bold uppercase tracking-tight">{project.title}</h3>
