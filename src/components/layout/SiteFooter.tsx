@@ -14,7 +14,7 @@ export function SiteFooter() {
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             <span className="material-symbols-outlined text-sm text-primary">terminal</span>
-            <span className="font-headline text-sm font-bold uppercase tracking-tight text-primary">ARCHITECT_RICKY</span>
+            <span className="font-headline text-sm font-bold uppercase tracking-tight text-primary">ARCHITECT_Tsai Yiu Ki, RICKY</span>
           </div>
 
           <nav className="flex flex-wrap items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-outline md:text-xs">
